@@ -1,8 +1,4 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/6EO6Vzam)
-
-# Exam #1: "Forum"
-
-## Student: s332118 Marino Alberto
+# "Forum"
 
 ## React Client Application Routes
 
@@ -340,7 +336,7 @@
   - **Response**: `200 OK` (logout successful)  
   - **Response body**: _None_
 
-- **Error response**: `401 Unauthorized` – if the user is not authenticated
+  - **Error response**: `401 Unauthorized` – if the user is not authenticated
 
 - **GET** `/api/sessions/current`  
   - **Description**: retrieve information about the currently authenticated user session  
@@ -359,7 +355,7 @@
     }
     ```
 
-- **Error response**: `401 Unauthorized` – if the user is not authenticated
+  - **Error response**: `401 Unauthorized` – if the user is not authenticated
 
 ## Database Tables
 
