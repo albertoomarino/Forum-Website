@@ -1,4 +1,33 @@
-# "Forum"
+# Forum Website
+
+## Project Requirements
+
+Design and implement a web application to manage a forum where users can write posts and others can insert comments related to the posts. The application must implement the following specifications.
+
+A post is an item composed of a unique title (among all posts), an author, a non-empty text, an optional maximum number of comments (including zero) that can be appended to the post, and a publication timestamp. Additionally, a list of zero or more comments is associated with a post.
+
+A comment is composed of a non-empty text, a publication timestamp, and, optionally, an associated author. Comments without an author are considered “anonymous comments”.
+
+Note that the text of both posts and comments can be multiline, i.e., newlines can be inserted when entering the text and such formatting (newlines) must be kept when visualizing such text.
+
+When visualizing the list of posts and/or the list of comments associated with a post, in any view, they must always be listed in chronological order, from the most recent to the less recent one, according to the timestamp, which must be shown in the numeric format year-month-day hour:min:sec. Timestamps refer to the time of the permanent creation in the system (e.g., the info is entered in the database). No handling of time zones is required.
+
+Initially, a generic (authenticated or not) visitor of the website can only see, regardless of its authentication status, a list of all posts showing their title, author, text, timestamp, the number of comments (of any type) currently associated with the post and the maximum allowed one for each post, but not the list of comments appended to each post, except for the anonymous comments.
+
+Anybody (authenticated or not) can append a comment to a post. Comments of non authenticated users will be anonymous comments. Anonymous comments count towards the limit of maximum comments. Note that, once inserted, anonymous comments can be manipulated only when explicitly specified in the following.
+
+An authenticated user can:
+
+- See the list of posts as the generic visitor of the website, but in addition the user can see the list of appended comments. For each comment, the user can see the text, timestamp, author, and also the total number of “interesting” flags received by all users for that comment (see next point). The user can also see if it has previously marked such a comment as “interesting” for his/her, e.g, showing a flag icon next to the comment;
+- Mark any existing comment, even authored by anybody else, as interesting/not interesting for his/her. Note that the interesting flag information is private and it has to be shown only to the user that inserted it;
+- Add posts by specifying their title, text and the (optional) maximum number of comments . Other information will automatically be set by the system upon confirmation: the timestamp, and the author (the logged-in user). A newly created post starts with an empty list of comments in any case. When adding a post, the authenticated user is considered the author by the system;
+- Add comments to any post, regardless of the post author. When adding a comment, the authenticated user is considered the author of the comment. Thus, it cannot add an anonymous comment. Other information such as the timestamp is to be automatically set by the system upon confirmation;
+- Edit the text of comments for which they are the authors. Edit operations do not modify the publication timestamp and have no impact on the interesting mark. Text of posts in not required to be edited after creation time;
+- Delete the comments and posts for which he/she is the author. When deleting posts, all associated comments are removed from the system, regardless of the author, including anonymous ones.
+
+A special category of users, named administrators, can, in addition to the previous operations, also delete anybody’s posts or comments, including anonymous ones, and edit the text of any comment, including anonymous ones. Such users, to be able to act as administrators, must authenticate using the 2FA procedure with a TOTP. Note that such a category of users can also choose to authenticate without using the 2FA procedure, thus acting as authenticated users with username/password only.
+
+For the 2FA procedure, for simplicity, use the following secret for all users that require it: `LXBSMDTMSP2I5XFXIYRGFVWSFI`.
 
 ## React Client Application Routes
 
